@@ -1,0 +1,140 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background: #f5f7fb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.login-card {
+  background: white;
+  border-radius: 40px;
+  padding: 48px 40px;
+  max-width: 420px;
+  width: 100%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.04);
+  text-align: center;
+}
+
+.logo-loader {
+  width: 56px;
+  height: 56px;
+  background: #0a0a0a;
+  border-radius: 16px;
+  margin: 0 auto 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: logoPulse 1.8s infinite ease-in-out;
+}
+
+@keyframes logoPulse {
+  0% {
+    transform: scale(0.96);
+  }
+  
+  50% {
+    transform: scale(1.04);
+  }
+  
+  100% {
+    transform: scale(0.96);
+  }
+}
+
+.logo-loader i {
+  color: white;
+  font-size: 26px;
+  animation: spinSlow 2.4s linear infinite;
+}
+
+@keyframes spinSlow {
+  0% {
+    transform: rotate(0deg);
+  }
+  
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+h1 {
+  font-size: 1.8rem;
+  font-weight: 650;
+  margin-bottom: 4px;
+}
+
+.sub {
+  color: #6b7280;
+  margin-bottom: 32px;
+}
+
+.input-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.input-group label {
+  font-weight: 500;
+  font-size: 0.9rem;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: 40px;
+  border: 1px solid #e5e7eb;
+  background: #f9fafb;
+  font-size: 1rem;
+  transition: 0.2s;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #0a0a0a;
+  background: white;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 14px;
+  background: #0a0a0a;
+  color: white;
+  border: none;
+  border-radius: 40px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-primary:hover {
+  background: #2d2d2d;
+  transform: scale(1.01);
+}
+
+.footer-links {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+.footer-links a {
+  transition: 0.2s;
+}
+
+.footer-links a:hover {
+  color: #0a0a0a;
+}
