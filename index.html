@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+  <title>NoneApk · Android App Store</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <div class="logo-area">
+        <div class="logo-loader">
+          <i class="fas fa-cube"></i>
+        </div>
+        <span class="brand">NoneApk</span>
+      </div>
+      
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+      
+      <div class="nav-links" id="navLinks">
+        <!-- Auth links will be dynamically updated by JavaScript -->
+        <div id="authLinks">
+          <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+          <a href="signup.html">Sign up</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container" id="appContainer">
+    <!-- Content will be dynamically loaded from catalog -->
+  </main>
+
+  <footer class="page-footer">
+    <div>
+      <a href="privacy.html"><i class="fas fa-lock"></i> Privacy</a>
+      <a href="terms.html"><i class="fas fa-file-contract"></i> Terms</a>
+      <a href="developer.html"><i class="fas fa-user-tie"></i> Developer</a>
+      <a href="dashboard.html"><i class="fas fa-chart-pie"></i> Dashboard</a>
+      <a href="404.html"><i class="fas fa-exclamation-triangle"></i> 404</a>
+      <a href="upload.html"><i class="fas fa-upload"></i> Upload</a>
+    </div>
+    <div style="margin-top: 8px; opacity: 0.6; font-size: 0.7rem;">
+      NoneApk · android appstore · 2026
+    </div>
+  </footer>
+  <script type="module">
+    import './js/config.js';
+    import './js/main.js'
+  </script>
+</body>
+</html>
