@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+  <title>Upload APK · NoneApk</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="css/upload.css" title="" type="" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <div class="logo-area">
+        <div class="logo-loader">
+          <i class="fas fa-cube"></i>
+        </div>
+        <span class="brand">NoneApk</span>
+      </div>
+      
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+      
+      <div class="nav-links" id="navLinks">
+        <a href="index.html"><i class="fas fa-compass"></i> Discover</a>
+        <a href="dashboard.html"><i class="fas fa-chart-pie"></i> Dashboard</a>
+        <a href="developer.html"><i class="fas fa-user-tie"></i> Developer</a>
+        <a href="login.html" class="btn-outline"><i class="fas fa-sign-out-alt"></i> Logout</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <div class="upload-header">
+      <h1><i class="fas fa-cloud-upload-alt"></i> Upload APK</h1>
+      <p>Publish your app to the NoneApk community. Fill in all required fields below.</p>
+    </div>
+
+    <form id="uploadForm" onsubmit="handleSubmit(event)">
+      <!-- === APK File === -->
+      <div class="form-card">
+        <h2><i class="fas fa-file-archive"></i> APK File</h2>
+        <div class="form-group">
+          <label>APK File <span class="required">*</span></label>
+          <div class="file-upload" id="apkUpload">
+            <i class="fas fa-file-archive"></i>
+            <p>Drag & drop your .apk file here, or click to browse</p>
+            <div class="file-name" id="apkFileName"></div>
+            <input type="file" id="apkFile" accept=".apk" required />
+          </div>
+          <div class="hint">Only .apk files are accepted. Maximum size: 500 MB.</div>
+        </div>
+      </div>
+
+      <!-- === App Icon === -->
+      <div class="form-card">
+        <h2><i class="fas fa-image"></i> App Icon</h2>
+        <div class="form-group">
+          <label>App Icon <span class="required">*</span></label>
+          <div class="file-upload" id="iconUpload">
+            <i class="fas fa-image"></i>
+            <p>Upload a 1:1 aspect ratio icon (JPEG, PNG, WebP)</p>
+            <div class="file-name" id="iconFileName"></div>
+            <input type="file" id="iconFile" accept="image/jpeg,image/png,image/webp" required />
+          </div>
+          <div class="icon-preview-container" id="iconPreviewContainer" style="display:none;">
+            <div class="icon-preview" id="iconPreview">
+              <div class="placeholder"><i class="fas fa-image"></i></div>
+            </div>
+            <div class="icon-info">
+              <div><strong>Dimensions:</strong> <span class="dimension" id="iconDimensions">—</span></div>
+              <div><strong>Format:</strong> <span id="iconFormat">—</span></div>
+              <div><strong>Status:</strong> <span id="iconStatus" style="color:#059669;">✓ Valid 1:1</span></div>
+            </div>
+          </div>
+          <div class="hint">Must be 1:1 aspect ratio, under 1024px, JPEG/PNG/WebP.</div>
+        </div>
+      </div>
+
+      <!-- === App Details === -->
+      <div class="form-card">
+        <h2><i class="fas fa-info-circle"></i> App Details</h2>
+        <div class="form-group">
+          <label>App Name <span class="required">*</span></label>
+          <input type="text" id="appName" placeholder="e.g. Pixel Racer" required />
+        </div>
+
+        <!-- <div class="form-group">
+          <label>Developer / Publisher <span class="required">*</span></label>
+          <input type="text" id="appDev" placeholder="e.g. Nitro Games" required />
+        </div> -->
+
+        <div class="form-group">
+          <label>Version <span class="required">*</span></label>
+          <input type="text" id="appVersion" placeholder="e.g. v2.1.0" required />
+        </div>
+
+        <div class="form-group">
+          <label>Category <span class="required">*</span></label>
+          <select id="appCategory" required>
+            <option value="">Select a category</option>
+            <option value="Games">Games</option>
+            <option value="Tools">Tools</option>
+            <option value="Social">Social</option>
+            <option value="Education">Education</option>
+            <option value="Entertainment">Entertainment</option>
+            <option value="Productivity">Productivity</option>
+            <option value="Health & Fitness">Health & Fitness</option>
+            <option value="Music & Audio">Music & Audio</option>
+            <option value="Photography">Photography</option>
+            <option value="Shopping">Shopping</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Package Name <span class="required">*</span></label>
+          <input type="text" id="packageName" placeholder="e.g. com.nitro.pixelracer" required />
+          <div class="hint">Unique identifier for your app (usually reverse domain).</div>
+        </div>
+
+        <div class="form-group">
+          <label>Minimum SDK <span class="required">*</span></label>
+          <input type="number" id="minSdk" placeholder="e.g. 24" min="14" max="35" required />
+          <div class="hint">Android API level (e.g. 24 = Android 7.0).</div>
+        </div>
+      </div>
+
+      <!-- === Descriptions === -->
+      <div class="form-card">
+        <h2><i class="fas fa-align-left"></i> Descriptions</h2>
+        <div class="form-group">
+          <label>Short Description <span class="required">*</span></label>
+          <textarea id="shortDesc" rows="3" placeholder="Brief description of your app (under 100 words)" maxlength="600" required></textarea>
+          <div class="word-count" id="shortDescCount">0 / 100 words</div>
+          <div class="hint">Max 100 words. This appears under the app title.</div>
+        </div>
+
+        <div class="form-group">
+          <label>Long Description <span class="required">*</span></label>
+          <textarea id="longDesc" class="long" rows="6" placeholder="Detailed description of your app (over 200 words)" required></textarea>
+          <div class="word-count" id="longDescCount">0 / 200 words</div>
+          <div class="hint">Min 200 words. This appears in the 'About this app' section.</div>
+        </div>
+      </div>
+
+      <!-- === Screenshots === -->
+      <div class="form-card">
+        <h2><i class="fas fa-images"></i> App Screenshots</h2>
+        <div class="form-group">
+          <label>Screenshots (3–5) <span class="required">*</span></label>
+          <div class="file-upload" id="screenshotUpload">
+            <i class="fas fa-images"></i>
+            <p>Upload 3–5 screenshots (JPEG, PNG, WebP)</p>
+            <div class="file-name" id="screenshotCount">0 / 5 selected</div>
+            <input type="file" id="screenshotFiles" accept="image/jpeg,image/png,image/webp" multiple required />
+          </div>
+          <div class="preview-container" id="screenshotPreview"></div>
+          <div class="hint">Minimum 3, maximum 5 screenshots. Recommended: 1080x1920 or 720x1280.</div>
+        </div>
+      </div>
+
+      <!-- === Thumbnail / Sponsor Image === -->
+      <div class="form-card">
+        <h2><i class="fas fa-palette"></i> Thumbnail / Sponsor Image</h2>
+        <div class="form-group">
+          <label>Thumbnail / Main Image <span class="required">*</span></label>
+          <div class="file-upload" id="thumbnailUpload">
+            <i class="fas fa-palette"></i>
+            <p>Upload a main image or banner (JPEG, PNG, WebP)</p>
+            <div class="file-name" id="thumbnailFileName"></div>
+            <input type="file" id="thumbnailFile" accept="image/jpeg,image/png,image/webp" required />
+          </div>
+          <div class="preview-container" id="thumbnailPreview"></div>
+          <div class="hint">Recommended size: 1200 x 600 px.</div>
+        </div>
+      </div>
+
+      <!-- === Video URL === -->
+      <div class="form-card">
+        <h2><i class="fas fa-video"></i> Video URL (Optional)</h2>
+        <div class="form-group">
+          <label>Video URL</label>
+          <input type="url" id="videoUrl" placeholder="https://www.youtube.com/watch?v=..." />
+          <div class="hint">YouTube, Vimeo, or other video platform URL.</div>
+        </div>
+      </div>
+
+      <!-- === Submit === -->
+      <div class="form-card">
+        <div class="submit-area">
+          <button type="button" class="btn-cancel" onclick="window.location.href='dashboard.html'">
+            <i class="fas fa-times"></i> Cancel
+          </button>
+          <button type="submit" class="btn-submit" id="submitBtn">
+            <i class="fas fa-rocket"></i> Publish App
+          </button>
+        </div>
+      </div>
+    </form>
+  </main>
+
+  <footer class="page-footer">
+    <div>
+      <a href="privecy.html"><i class="fas fa-lock"></i> Privacy</a>
+      <a href="terms.html"><i class="fas fa-file-contract"></i> Terms</a>
+      <a href="developer.html"><i class="fas fa-user-tie"></i> Developer</a>
+      <a href="dashboard.html"><i class="fas fa-chart-pie"></i> Dashboard</a>
+      <a href="404.html"><i class="fas fa-exclamation-triangle"></i> 404</a>
+    </div>
+    <div style="margin-top: 8px; opacity: 0.6; font-size: 0.7rem;">
+      NoneApk · 2026
+    </div>
+  </footer>
+
+  <script src="js/upload.js"></script>
+</body>
+</html>
