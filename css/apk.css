@@ -1,0 +1,759 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+}
+
+body {
+  background: #f0f2f5;
+  color: #1f2937;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  animation: fadeInBody 0.6s ease;
+}
+
+@keyframes fadeInBody {
+  0% { opacity: 0; transform: translateY(12px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 16px;
+  width: 100%;
+}
+
+.navbar {
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 12px 0;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+
+.navbar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+
+.logo-loader {
+  width: 36px;
+  height: 36px;
+  background: #0a0a0a;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.logo-loader i {
+  color: white;
+  font-size: 18px;
+}
+
+.brand {
+  font-weight: 650;
+  font-size: 1.2rem;
+  letter-spacing: -0.5px;
+  background: linear-gradient(145deg, #111, #2b2b2b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  white-space: nowrap;
+}
+
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: #1f2937;
+  cursor: pointer;
+  padding: 4px 6px;
+  transition: 0.2s;
+  margin-left: auto;
+}
+
+.menu-toggle:active {
+  transform: scale(0.92);
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #374151;
+  transition: all 0.3s ease;
+}
+
+.nav-links a {
+  transition: color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-links a:hover {
+  color: #0a0a0a;
+}
+
+.btn-outline {
+  border: 1px solid #d1d5db;
+  padding: 8px 18px;
+  border-radius: 40px;
+  background: transparent;
+  transition: all 0.2s;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.btn-outline:hover {
+  background: #0a0a0a;
+  color: white;
+  border-color: #0a0a0a;
+}
+
+/* ----- APK Detail (mobile-friendly) ----- */
+.apk-header {
+  background: white;
+  border-radius: 20px;
+  padding: 24px 20px;
+  margin: 20px 0 16px;
+  border: 1px solid rgba(0,0,0,0.02);
+}
+
+.apk-header-flex {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.apk-icon-large {
+  width: 80px;
+  height: 80px;
+  background: #dbe0e8;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 34px;
+  color: #1f2937;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.apk-icon-large img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.apk-title-area {
+  flex: 1;
+  min-width: 200px;
+}
+
+.apk-title-area h1 {
+  font-weight: 700;
+  font-size: 1.8rem;
+  letter-spacing: -0.5px;
+}
+
+.apk-title-area .dev {
+  font-size: 1rem;
+  color: #4b5563;
+  margin-top: 2px;
+}
+
+.apk-title-area .short-desc {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+.apk-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin-top: 12px;
+}
+
+.apk-stats span {
+  font-size: 0.75rem;
+  color: #6b7280;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: #f9fafb;
+  padding: 4px 12px;
+  border-radius: 40px;
+}
+
+.apk-stats i {
+  color: #9ca3af;
+  font-size: 0.7rem;
+}
+
+.btn-download {
+  background: #0a0a0a;
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 60px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: 0.2s;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 12px;
+  width: auto;
+}
+
+.btn-download:active {
+  transform: scale(0.96);
+}
+
+.btn-download:hover {
+  background: #2d2d2d;
+}
+
+/* ----- Screenshots Section ----- */
+.screenshots-section {
+  background: white;
+  border-radius: 20px;
+  padding: 20px 16px;
+  margin-bottom: 16px;
+  border: 1px solid rgba(0,0,0,0.02);
+}
+
+.screenshots-section h2 {
+  font-size: 1.1rem;
+  font-weight: 650;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.screenshots-section h2 i {
+  color: #6b7280;
+}
+
+.screenshot-scroll {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 12px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.screenshot-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.screenshot {
+  flex: 0 0 160px;
+  height: 280px;
+  background: #eef2f6;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: #9ca3af;
+  scroll-snap-align: start;
+  border: 1px solid #e5e7eb;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.screenshot span {
+  font-size: 0.7rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.screenshot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+/* ----- Description Section ----- */
+.desc-section {
+  background: white;
+  border-radius: 20px;
+  padding: 20px 16px;
+  margin-bottom: 16px;
+  border: 1px solid rgba(0,0,0,0.02);
+}
+
+.desc-section h2 {
+  font-size: 1.1rem;
+  font-weight: 650;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.desc-section h2 i {
+  color: #6b7280;
+}
+
+.desc-section .long-desc {
+  color: #4b5563;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.desc-section .long-desc p {
+  margin-bottom: 10px;
+}
+
+.desc-section .long-desc ul {
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+
+.desc-section .long-desc ul li {
+  margin-bottom: 4px;
+}
+
+/* ----- Footer info - VERTICAL LAYOUT ----- */
+.apk-footer-info {
+  background: white;
+  border-radius: 20px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+  border: 1px solid rgba(0,0,0,0.02);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 0.85rem;
+  color: #4b5563;
+}
+
+.apk-footer-info .info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.apk-footer-info .info-row:last-child {
+  border-bottom: none;
+}
+
+.apk-footer-info .info-label {
+  font-weight: 500;
+  color: #6b7280;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.apk-footer-info .info-label i {
+  color: #9ca3af;
+  width: 20px;
+  text-align: center;
+}
+
+.apk-footer-info .info-value {
+  font-weight: 600;
+  color: #1f2937;
+  text-align: right;
+  max-width: 60%;
+  word-break: break-all;
+}
+
+/* ----- Related sections ----- */
+.related-section {
+  background: white;
+  border-radius: 20px;
+  padding: 20px 16px;
+  margin-bottom: 16px;
+  border: 1px solid rgba(0,0,0,0.02);
+}
+
+.related-section .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.related-section .header h3 {
+  font-size: 1.1rem;
+  font-weight: 650;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.related-section .header h3 i {
+  color: #6b7280;
+}
+
+.related-section .header a {
+  color: #6b7280;
+  font-size: 0.75rem;
+}
+
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 12px;
+}
+
+.related-grid .app-card {
+  background: #f9fafb;
+  border-radius: 14px;
+  padding: 14px 10px 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.2s;
+  border: 1px solid transparent;
+}
+
+.related-grid .app-card:active {
+  transform: scale(0.97);
+}
+
+.related-grid .app-card:hover {
+  border-color: #e5e7eb;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+}
+
+.related-grid .app-icon-sm {
+  width: 48px;
+  height: 48px;
+  background: #eef2f6;
+  border-radius: 14px;
+  margin: 0 auto 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #1f2937;
+  overflow: hidden;
+}
+
+.related-grid .app-icon-sm img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.related-grid .app-name-sm {
+  font-weight: 600;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.related-grid .app-dev-sm {
+  font-size: 0.65rem;
+  color: #6b7280;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Loading state */
+.loading-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #6b7280;
+}
+
+.loading-state i {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+/* Error state */
+.error-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #6b7280;
+}
+
+.error-state i {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 1rem;
+  color: #dc2626;
+}
+
+.error-state h2 {
+  margin-bottom: 0.5rem;
+}
+
+.error-state a {
+  display: inline-block;
+  margin-top: 1.5rem;
+  color: #0a0a0a;
+  text-decoration: underline;
+}
+
+.page-footer {
+  border-top: 1px solid #e5e7eb;
+  padding: 20px 0 16px;
+  margin-top: 16px;
+  font-size: 0.8rem;
+  color: #6b7280;
+  text-align: center;
+  width: 100%;
+}
+
+.page-footer a {
+  margin: 0 8px;
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
+.page-footer a:active {
+  color: #0a0a0a;
+}
+
+/* ----- Mobile Responsive ----- */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    padding: 12px 0 8px;
+    gap: 6px;
+    background: #ffffff;
+    border-top: 1px solid #f3f4f6;
+    margin-top: 10px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    border-radius: 0 0 16px 16px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 12px 18px;
+    border-radius: 10px;
+    background: #f9fafb;
+    justify-content: center;
+  }
+
+  .btn-outline {
+    text-align: center;
+    border: none;
+    background: #0a0a0a;
+    color: white;
+    border-radius: 10px;
+    padding: 12px 18px;
+  }
+
+  .btn-outline:hover {
+    background: #2d2d2d;
+  }
+
+  .apk-header-flex {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+
+  .apk-title-area h1 {
+    font-size: 1.4rem;
+  }
+
+  .apk-stats {
+    justify-content: center;
+  }
+
+  .btn-download {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .screenshot {
+    flex: 0 0 140px;
+    height: 240px;
+  }
+
+  .related-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .apk-footer-info .info-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding: 8px 0;
+  }
+
+  .apk-footer-info .info-value {
+    text-align: left;
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 24px;
+  }
+
+  .apk-header {
+    padding: 32px 28px;
+    border-radius: 24px;
+  }
+
+  .apk-icon-large {
+    width: 100px;
+    height: 100px;
+    font-size: 40px;
+  }
+
+  .apk-title-area h1 {
+    font-size: 2rem;
+  }
+
+  .screenshot-scroll {
+    gap: 16px;
+  }
+
+  .screenshot {
+    flex: 0 0 200px;
+    height: 340px;
+  }
+
+  .related-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .menu-toggle {
+    display: none !important;
+  }
+
+  .nav-links {
+    display: flex !important;
+    flex-direction: row;
+    width: auto;
+    padding: 0;
+    gap: 20px;
+    background: transparent;
+    border-top: none;
+    margin-top: 0;
+    position: static;
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  .nav-links a {
+    padding: 6px 12px;
+    background: transparent;
+    border-radius: 0;
+  }
+
+  .nav-links a:hover {
+    background: transparent;
+    color: #0a0a0a;
+  }
+
+  .btn-outline {
+    padding: 8px 20px;
+    border-radius: 40px;
+    background: transparent;
+    color: #1f2937;
+    border: 1px solid #d1d5db;
+  }
+
+  .btn-outline:hover {
+    background: #0a0a0a;
+    color: white;
+    border-color: #0a0a0a;
+  }
+}
+
+/* No screenshot available */
+.screenshot.no-screenshot {
+  flex: 0 0 200px;
+  height: 280px;
+  background: #f3f4f6;
+  border: 2px dashed #d1d5db;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: #9ca3af;
+}
+
+.screenshot.no-screenshot i {
+  font-size: 2.5rem;
+  color: #d1d5db;
+}
+
+.screenshot.no-screenshot span {
+  font-size: 0.9rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .screenshot.no-screenshot {
+    flex: 0 0 160px;
+    height: 220px;
+  }
+  
+  .screenshot.no-screenshot i {
+    font-size: 2rem;
+  }
+  
+  .screenshot.no-screenshot span {
+    font-size: 0.75rem;
+  }
+}
