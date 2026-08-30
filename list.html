@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+  <title>NoneApk · All Apps</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Additional list page styles */
+    .list-header {
+      background: white;
+      border-radius: 20px;
+      padding: 24px 20px;
+      margin: 20px 0 24px;
+      border: 1px solid rgba(0,0,0,0.02);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    
+    .list-header h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .list-header h1 i {
+      color: #6b7280;
+    }
+    
+    .list-header .count {
+      font-size: 0.85rem;
+      color: #6b7280;
+      background: #f3f4f6;
+      padding: 4px 14px;
+      border-radius: 40px;
+    }
+    
+    .list-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    
+    .list-grid .app-card {
+      background: white;
+      border-radius: 16px;
+      padding: 16px 12px 14px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: 1px solid rgba(0,0,0,0.04);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    }
+    
+    .list-grid .app-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+      border-color: #e5e7eb;
+    }
+    
+    .list-grid .app-card:active {
+      transform: scale(0.97);
+    }
+    
+    .list-grid .app-icon {
+      width: 64px;
+      height: 64px;
+      background: #eef2f6;
+      border-radius: 16px;
+      margin: 0 auto 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: #1f2937;
+      overflow: hidden;
+    }
+    
+    .list-grid .app-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .list-grid .app-name {
+      font-weight: 600;
+      font-size: 0.85rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    
+    .list-grid .app-dev {
+      font-size: 0.7rem;
+      color: #6b7280;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    
+    .list-grid .app-badge {
+      background: #eef2f6;
+      padding: 2px 10px;
+      border-radius: 40px;
+      font-size: 0.6rem;
+      font-weight: 500;
+      color: #374151;
+      display: inline-block;
+      margin-top: 4px;
+    }
+    
+    /* Loading indicator */
+    .list-loading-more {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: #6b7280;
+      display: none;
+    }
+    
+    .list-loading-more.active {
+      display: block;
+    }
+    
+    .list-loading-more i {
+      font-size: 1.5rem;
+      display: inline-block;
+      margin-right: 10px;
+      animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    .list-empty {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: #6b7280;
+      grid-column: 1 / -1;
+    }
+    
+    .list-empty i {
+      font-size: 3rem;
+      display: block;
+      margin-bottom: 1rem;
+      color: #d1d5db;
+    }
+    
+    .list-loading {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: #6b7280;
+      grid-column: 1 / -1;
+    }
+    
+    .list-loading i {
+      font-size: 2rem;
+      display: block;
+      margin-bottom: 1rem;
+      animation: spin 1s linear infinite;
+    }
+    
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #6b7280;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: 0.2s;
+    }
+    
+    .back-link:hover {
+      color: #0a0a0a;
+    }
+
+    /* End of list message */
+    .list-end {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: #9ca3af;
+      font-size: 0.9rem;
+      grid-column: 1 / -1;
+    }
+    
+    .list-end i {
+      display: block;
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      color: #d1d5db;
+    }
+    
+    @media (max-width: 768px) {
+      .list-header {
+        padding: 16px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+      
+      .list-header h1 {
+        font-size: 1.2rem;
+      }
+      
+      .list-grid {
+        gap: 12px;
+      }
+      
+      .list-grid .app-icon {
+        width: 52px;
+        height: 52px;
+        font-size: 18px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .list-grid {
+        gap: 10px;
+      }
+      
+      .list-grid .app-card {
+        padding: 12px 8px 10px;
+      }
+      
+      .list-grid .app-icon {
+        width: 44px;
+        height: 44px;
+        font-size: 16px;
+        border-radius: 12px;
+      }
+      
+      .list-grid .app-name {
+        font-size: 0.75rem;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .list-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <div class="logo-area">
+        <div class="logo-loader">
+          <i class="fas fa-cube"></i>
+        </div>
+        <span class="brand">NoneApk</span>
+      </div>
+      
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+      
+      <div class="nav-links" id="navLinks">
+        <a href="index.html"><i class="fas fa-compass"></i> Discover</a>
+        <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+        <a href="signup.html" class="btn-outline">Sign up</a>
+        <a href="upload.html"><i class="fas fa-cloud-upload-alt"></i> Upload</a>
+        <a href="dashboard.html"><i class="fas fa-chart-pie"></i> Dashboard</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <div class="list-header" id="listHeader">
+      <h1><i class="fas fa-list"></i> <span id="sectionTitle">All Apps</span></h1>
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <span class="count" id="appCount">0 apps</span>
+        <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back</a>
+      </div>
+    </div>
+    
+    <div class="list-grid" id="listGrid">
+      <!-- Apps will be loaded here -->
+    </div>
+    
+    <div class="list-loading-more" id="loadingMore">
+      <i class="fas fa-spinner"></i> Loading more apps...
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <div>
+      <a href="privecy.html"><i class="fas fa-lock"></i> Privacy</a>
+      <a href="terms.html"><i class="fas fa-file-contract"></i> Terms</a>
+      <a href="developer.html"><i class="fas fa-user-tie"></i> Developer</a>
+      <a href="dashboard.html"><i class="fas fa-chart-pie"></i> Dashboard</a>
+      <a href="404.html"><i class="fas fa-exclamation-triangle"></i> 404</a>
+      <a href="upload.html"><i class="fas fa-upload"></i> Upload</a>
+    </div>
+    <div style="margin-top: 8px; opacity: 0.6; font-size: 0.7rem;">
+      NoneApk · 2026
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Mobile menu toggle
+      const menuToggle = document.getElementById('menuToggle');
+      const navLinks = document.getElementById('navLinks');
+      
+      if (menuToggle) {
+        menuToggle.addEventListener('click', function(e) {
+          e.stopPropagation();
+          navLinks.classList.toggle('active');
+          const icon = this.querySelector('i');
+          icon.className = navLinks.classList.contains('active') ? 'fas fa-times' : 'fas fa-bars';
+        });
+      }
+      
+      document.addEventListener('click', function(e) {
+        if (!e.target.closest('.navbar') && navLinks.classList.contains('active')) {
+          navLinks.classList.remove('active');
+          if (menuToggle) {
+            menuToggle.querySelector('i').className = 'fas fa-bars';
+          }
+        }
+      });
+      
+      // Load apps based on URL parameter
+      loadAppsFromURL();
+    });
+    
+    // Store all apps globally
+    let allApps = [];
+    let filteredApps = [];
+    let currentIndex = 0;
+    const BATCH_SIZE = 15;
+    let isLoading = false;
+    let hasMore = true;
+    
+    function loadAppsFromURL() {
+      const params = new URLSearchParams(window.location.search);
+      const type = params.get('type') || 'latest';
+      
+      // Update title
+      const titleMap = {
+        'latest': 'Latest Apps',
+        'trending': 'Trending Apps',
+        'top-games': 'Top Games',
+        'top-apps': 'Top Apps',
+        'new-games': 'New Games Update',
+        'new-apps': 'New Apps Update',
+        'hot-games': 'Hot Games',
+        'hot-apps': 'Hot Apps'
+      };
+      
+      document.getElementById('sectionTitle').textContent = titleMap[type] || 'All Apps';
+      
+      // Show loading
+      document.getElementById('listGrid').innerHTML = `
+        <div class="list-loading">
+          <i class="fas fa-spinner"></i>
+          Loading apps...
+        </div>
+      `;
+      
+      // Load catalog
+      const catalogFiles = ['file/catalog/catalog_1.json', 'file/catalog/catalog_2.json', 'file/catalog/catalog_3.json'];
+      
+      const fetchPromises = catalogFiles.map(url =>
+        fetch(url)
+          .then(res => {
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            return res.json();
+          })
+          .catch(err => {
+            console.warn('Failed to load', url, err);
+            return null;
+          })
+      );
+      
+      Promise.all(fetchPromises).then(results => {
+        const valid = results.filter(r => r && r.Apps && Array.isArray(r.Apps));
+        if (valid.length === 0) {
+          document.getElementById('listGrid').innerHTML = `
+            <div class="list-empty">
+              <i class="fas fa-exclamation-circle"></i>
+              <p>Could not load app catalog. Please try again later.</p>
+            </div>
+          `;
+          return;
+        }
+        
+        allApps = [];
+        valid.forEach(cat => cat.Apps.forEach(app => allApps.push(app)));
+        
+        // Filter apps based on type
+        filteredApps = getFilteredApps(type);
+        
+        // Update count
+        document.getElementById('appCount').textContent = filteredApps.length + ' apps';
+        
+        if (filteredApps.length === 0) {
+          document.getElementById('listGrid').innerHTML = `
+            <div class="list-empty">
+              <i class="fas fa-inbox"></i>
+              <p>No apps found in this category.</p>
+            </div>
+          `;
+          return;
+        }
+        
+        // Reset pagination
+        currentIndex = 0;
+        hasMore = true;
+        document.getElementById('listGrid').innerHTML = '';
+        
+        // Load first batch
+        loadMoreApps();
+        
+        // Setup infinite scroll
+        setupInfiniteScroll();
+        
+      }).catch(err => {
+        console.error(err);
+        document.getElementById('listGrid').innerHTML = `
+          <div class="list-empty">
+            <i class="fas fa-exclamation-circle"></i>
+            <p>Error loading app catalog. Please try again later.</p>
+          </div>
+        `;
+      });
+    }
+    
+    function getFilteredApps(type) {
+      switch(type) {
+        case 'latest':
+          return [...allApps].sort((a, b) => {
+            const dateA = a.ReleaseDate || '2000-01-01';
+            const dateB = b.ReleaseDate || '2000-01-01';
+            return dateB.localeCompare(dateA);
+          });
+          
+        case 'trending':
+          return [...allApps].sort((a, b) => {
+            const ratingA = parseFloat(a.Rating) || 0;
+            const ratingB = parseFloat(b.Rating) || 0;
+            return ratingB - ratingA;
+          });
+          
+        case 'top-games':
+          return allApps.filter(a => {
+            const cat = (a.CategoryName || '').toLowerCase();
+            return cat.includes('game') || cat.includes('casino') || cat.includes('action') || 
+                   cat.includes('arcade') || cat.includes('puzzle') || cat.includes('racing') ||
+                   cat.includes('sports') || cat.includes('strategy');
+          });
+          
+        case 'top-apps':
+          return allApps.filter(a => {
+            const cat = (a.CategoryName || '').toLowerCase();
+            return !cat.includes('game') && !cat.includes('casino') && !cat.includes('action') && 
+                   !cat.includes('arcade') && !cat.includes('puzzle') && !cat.includes('racing') &&
+                   !cat.includes('sports') && !cat.includes('strategy');
+          });
+          
+        case 'new-games':
+          return allApps.filter(a => {
+            const cat = (a.CategoryName || '').toLowerCase();
+            return cat.includes('game') || cat.includes('casino') || cat.includes('action') || 
+                   cat.includes('arcade') || cat.includes('puzzle') || cat.includes('racing') ||
+                   cat.includes('sports') || cat.includes('strategy');
+          }).sort((a, b) => {
+            const dateA = a.ReleaseDate || '2000-01-01';
+            const dateB = b.ReleaseDate || '2000-01-01';
+            return dateB.localeCompare(dateA);
+          });
+          
+        case 'new-apps':
+          return allApps.filter(a => {
+            const cat = (a.CategoryName || '').toLowerCase();
+            return !cat.includes('game') && !cat.includes('casino') && !cat.includes('action') && 
+                   !cat.includes('arcade') && !cat.includes('puzzle') && !cat.includes('racing') &&
+                   !cat.includes('sports') && !cat.includes('strategy');
+          }).sort((a, b) => {
+            const dateA = a.ReleaseDate || '2000-01-01';
+            const dateB = b.ReleaseDate || '2000-01-01';
+            return dateB.localeCompare(dateA);
+          });
+          
+        case 'hot-games':
+          return allApps.filter(a => {
+            const cat = (a.CategoryName || '').toLowerCase();
+            return cat.includes('game') || cat.includes('casino') || cat.includes('action') || 
+                   cat.includes('arcade') || cat.includes('puzzle') || cat.includes('racing') ||
+                   cat.includes('sports') || cat.includes('strategy');
+          }).sort((a, b) => {
+            const ratingA = parseFloat(a.Rating) || 0;
+            const ratingB = parseFloat(b.Rating) || 0;
+            return ratingB - ratingA;
+          });
+          
+        case 'hot-apps':
+          return allApps.filter(a => {
+            const cat = (a.CategoryName || '').toLowerCase();
+            return !cat.includes('game') && !cat.includes('casino') && !cat.includes('action') && 
+                   !cat.includes('arcade') && !cat.includes('puzzle') && !cat.includes('racing') &&
+                   !cat.includes('sports') && !cat.includes('strategy');
+          }).sort((a, b) => {
+            const ratingA = parseFloat(a.Rating) || 0;
+            const ratingB = parseFloat(b.Rating) || 0;
+            return ratingB - ratingA;
+          });
+          
+        default:
+          return [...allApps];
+      }
+    }
+    
+    function loadMoreApps() {
+      if (isLoading || !hasMore) return;
+      
+      isLoading = true;
+      const loadingMore = document.getElementById('loadingMore');
+      loadingMore.classList.add('active');
+      
+      // Get next batch
+      const nextBatch = filteredApps.slice(currentIndex, currentIndex + BATCH_SIZE);
+      
+      if (nextBatch.length === 0) {
+        hasMore = false;
+        isLoading = false;
+        loadingMore.classList.remove('active');
+        
+        // Show end message
+        const grid = document.getElementById('listGrid');
+        const endMessage = document.createElement('div');
+        endMessage.className = 'list-end';
+        endMessage.innerHTML = `
+          <i class="fas fa-check-circle"></i>
+          You've reached the end of the list
+        `;
+        grid.appendChild(endMessage);
+        return;
+      }
+      
+      // Simulate loading delay for smooth UX
+      setTimeout(() => {
+        // Render apps
+        renderAppBatch(nextBatch);
+        
+        // Update index
+        currentIndex += nextBatch.length;
+        isLoading = false;
+        loadingMore.classList.remove('active');
+        
+        // Check if we've reached the end
+        if (currentIndex >= filteredApps.length) {
+          hasMore = false;
+          const grid = document.getElementById('listGrid');
+          const endMessage = document.createElement('div');
+          endMessage.className = 'list-end';
+          endMessage.innerHTML = `
+            <i class="fas fa-check-circle"></i>
+            You've reached the end of the list
+          `;
+          grid.appendChild(endMessage);
+        }
+      }, 300);
+    }
+    
+    function renderAppBatch(apps) {
+      const grid = document.getElementById('listGrid');
+      
+      apps.forEach(app => {
+        const name = app.AppName || 'Unknown';
+        const dev = app.PublisherId || 'Unknown';
+        const rating = app.Rating ? parseFloat(app.Rating).toFixed(1) : '?';
+        const icon = app.AppIcon || app.Thumbnail || '';
+        const packageName = app.Package || '';
+        
+        const iconHtml = icon ? `<img src="${icon}" alt="" onerror="this.style.display='none'">` : `<i class="fas fa-cube"></i>`;
+        
+        const card = document.createElement('div');
+        card.className = 'app-card';
+        card.setAttribute('onclick', `openAppByPackage('${packageName}')`);
+        card.innerHTML = `
+          <div class="app-icon">${iconHtml}</div>
+          <div class="app-name">${name}</div>
+          <div class="app-dev">${dev}</div>
+          <span class="app-badge">⭐ ${rating}</span>
+        `;
+        grid.appendChild(card);
+      });
+    }
+    
+    function setupInfiniteScroll() {
+      // Use Intersection Observer for better performance
+      const loadingMore = document.getElementById('loadingMore');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !isLoading && hasMore) {
+            loadMoreApps();
+          }
+        });
+      }, {
+        rootMargin: '0px 0px 100px 0px'
+      });
+      
+      observer.observe(loadingMore);
+    }
+    
+    function openAppByPackage(packageName) {
+      if (packageName) {
+        window.location.href = 'apk.html?package=' + encodeURIComponent(packageName);
+      }
+    }
+  </script>
+</body>
+</html>
