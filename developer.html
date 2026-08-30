@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+  <title>Developer Portal · NoneApk</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="css/developer.css"/>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <div class="logo-area">
+        <div class="logo-loader">
+          <i class="fas fa-cube"></i>
+        </div>
+        <span class="brand">NoneApk</span>
+      </div>
+      
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+      
+      <div class="nav-links" id="navLinks">
+        <a href="index.html"><i class="fas fa-compass"></i> Discover</a>
+        <a href="dashboard.html"><i class="fas fa-chart-pie"></i> Dashboard</a>
+        <a href="upload.html"><i class="fas fa-cloud-upload-alt"></i> Upload</a>
+        <a href="login.html" class="btn-outline"><i class="fas fa-sign-out-alt"></i> Logout</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <!-- Developer Hero (completely different from dashboard) -->
+    <div class="dev-hero">
+      <h1>Developer Portal</h1>
+      <p>Build, distribute, and grow your apps on NoneApk</p>
+      <div class="badge"><i class="fas fa-rocket"></i> 12,847 downloads this month</div>
+      <div class="dev-hero-actions">
+        <button class="btn-hero-primary" onclick="window.location.href='upload.html'">
+          <i class="fas fa-upload"></i> Upload APK
+        </button>
+        <button class="btn-hero-secondary" onclick="window.location.href='dashboard.html'">
+          <i class="fas fa-chart-line"></i> View Analytics
+        </button>
+      </div>
+    </div>
+
+    <!-- Developer Stats (different layout) -->
+    <div class="dev-stats">
+      <div class="dev-stat">
+        <div class="icon"><i class="fas fa-download"></i></div>
+        <div class="number">12.8k</div>
+        <div class="label">Downloads</div>
+      </div>
+      <div class="dev-stat">
+        <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
+        <div class="number">7</div>
+        <div class="label">Active Apps</div>
+      </div>
+      <div class="dev-stat">
+        <div class="icon"><i class="fas fa-star"></i></div>
+        <div class="number">4.8</div>
+        <div class="label">Avg Rating</div>
+      </div>
+      <div class="dev-stat">
+        <div class="icon"><i class="fas fa-users"></i></div>
+        <div class="number">342</div>
+        <div class="label">Active Users</div>
+      </div>
+      <div class="dev-stat">
+        <div class="icon"><i class="fas fa-clock"></i></div>
+        <div class="number">4</div>
+        <div class="label">New Reviews</div>
+      </div>
+      <div class="dev-stat">
+        <div class="icon"><i class="fas fa-exclamation-circle"></i></div>
+        <div class="number">2</div>
+        <div class="label">Pending Updates</div>
+      </div>
+    </div>
+
+    <!-- Distribution Pipeline (visual flow) -->
+    <div class="pipeline">
+      <div class="pipeline-header">
+        <h2><i class="fas fa-code-branch"></i> Distribution Pipeline</h2>
+        <a href="#">Manage →</a>
+      </div>
+      <div class="pipeline-flow">
+        <div class="pipeline-step active">
+          <span class="step-icon"><i class="fas fa-check-circle"></i></span>
+          Upload
+        </div>
+        <div class="pipeline-arrow"><i class="fas fa-arrow-right"></i></div>
+        <div class="pipeline-step">
+          <span class="step-icon"><i class="fas fa-cog"></i></span>
+          Review
+        </div>
+        <div class="pipeline-arrow"><i class="fas fa-arrow-right"></i></div>
+        <div class="pipeline-step">
+          <span class="step-icon"><i class="fas fa-toggle-on"></i></span>
+          Rollout
+        </div>
+        <div class="pipeline-arrow"><i class="fas fa-arrow-right"></i></div>
+        <div class="pipeline-step">
+          <span class="step-icon"><i class="fas fa-chart-line"></i></span>
+          Monitor
+        </div>
+      </div>
+    </div>
+
+    <!-- Management Tools (grid cards) -->
+    <div class="tools-grid">
+      <div class="tool-card" onclick="alert('APK Upload panel')">
+        <div class="tool-icon purple"><i class="fas fa-upload"></i></div>
+        <h3>APK Upload</h3>
+        <p>Submit new APK with metadata, version, and targeting options</p>
+      </div>
+      <div class="tool-card" onclick="alert('Version management')">
+        <div class="tool-icon blue"><i class="fas fa-code-branch"></i></div>
+        <h3>Version Control</h3>
+        <p>Manage alpha, beta, and production releases with rollback</p>
+      </div>
+      <div class="tool-card" onclick="alert('Rollout settings')">
+        <div class="tool-icon green"><i class="fas fa-toggle-on"></i></div>
+        <h3>Rollout Control</h3>
+        <p>Staged rollout from 1% to 100%. Target specific countries</p>
+      </div>
+      <div class="tool-card" onclick="alert('Analytics dashboard')">
+        <div class="tool-icon orange"><i class="fas fa-chart-bar"></i></div>
+        <h3>Performance Analytics</h3>
+        <p>Crash reports, ANR monitoring, download trends, retention</p>
+      </div>
+      <div class="tool-card" onclick="alert('Security settings')">
+        <div class="tool-icon red"><i class="fas fa-shield-alt"></i></div>
+        <h3>Security & Compliance</h3>
+        <p>APK verification, malware scanning, permission analysis</p>
+      </div>
+      <div class="tool-card" onclick="alert('Audience settings')">
+        <div class="tool-icon teal"><i class="fas fa-users"></i></div>
+        <h3>Audience Targeting</h3>
+        <p>Target by country, Android version, device model, carrier</p>
+      </div>
+    </div>
+
+    <!-- Distribution Controls (toggle switches) -->
+    <div class="controls-section">
+      <h2><i class="fas fa-sliders-h"></i> Distribution Controls</h2>
+      <div class="control-item">
+        <div class="left">
+          <i class="fas fa-globe"></i>
+          <div>
+            <h4>Global Distribution</h4>
+            <p>Available in all countries</p>
+          </div>
+        </div>
+        <div class="right">
+          <div class="toggle on" onclick="toggleSwitch(this)">
+            <div class="dot"></div>
+          </div>
+          <span class="value">ON</span>
+        </div>
+      </div>
+      <div class="control-item">
+        <div class="left">
+          <i class="fas fa-percent"></i>
+          <div>
+            <h4>Staged Rollout</h4>
+            <p>Release to 10% of users</p>
+          </div>
+        </div>
+        <div class="right">
+          <div class="toggle" onclick="toggleSwitch(this)">
+            <div class="dot"></div>
+          </div>
+          <span class="value">OFF</span>
+        </div>
+      </div>
+      <div class="control-item">
+        <div class="left">
+          <i class="fas fa-flag"></i>
+          <div>
+            <h4>Country Targeting</h4>
+            <p>US, UK, Canada, Australia</p>
+          </div>
+        </div>
+        <div class="right">
+          <div class="toggle on" onclick="toggleSwitch(this)">
+            <div class="dot"></div>
+          </div>
+          <span class="value">ON</span>
+        </div>
+      </div>
+      <div class="control-item">
+        <div class="left">
+          <i class="fas fa-android"></i>
+          <div>
+            <h4>Android Version Targeting</h4>
+            <p>Android 7.0+ (API 24+)</p>
+          </div>
+        </div>
+        <div class="right">
+          <div class="toggle on" onclick="toggleSwitch(this)">
+            <div class="dot"></div>
+          </div>
+          <span class="value">ON</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Two column: Resources + Support -->
+    <div class="two-col">
+      <div class="controls-section">
+        <h2><i class="fas fa-book"></i> Developer Resources</h2>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <div style="background:#f9fafb; border-radius:12px; padding:12px 14px; display:flex; align-items:center; gap:12px; cursor:pointer; border:1px solid transparent;">
+            <i class="fas fa-file-pdf" style="color:#dc2626; font-size:1.2rem;"></i>
+            <div>
+              <div style="font-weight:500; font-size:0.85rem;">APK Publishing Guide</div>
+              <div style="color:#6b7280; font-size:0.7rem;">PDF · 2.4 MB</div>
+            </div>
+          </div>
+          <div style="background:#f9fafb; border-radius:12px; padding:12px 14px; display:flex; align-items:center; gap:12px; cursor:pointer; border:1px solid transparent;">
+            <i class="fas fa-code" style="color:#4f46e5; font-size:1.2rem;"></i>
+            <div>
+              <div style="font-weight:500; font-size:0.85rem;">API Documentation</div>
+              <div style="color:#6b7280; font-size:0.7rem;">REST · GraphQL</div>
+            </div>
+          </div>
+          <div style="background:#f9fafb; border-radius:12px; padding:12px 14px; display:flex; align-items:center; gap:12px; cursor:pointer; border:1px solid transparent;">
+            <i class="fas fa-video" style="color:#059669; font-size:1.2rem;"></i>
+            <div>
+              <div style="font-weight:500; font-size:0.85rem;">Video Tutorials</div>
+              <div style="color:#6b7280; font-size:0.7rem;">12 videos</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="controls-section">
+        <h2><i class="fas fa-headset"></i> Developer Support</h2>
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <div style="background:#f9fafb; border-radius:12px; padding:14px; text-align:center;">
+            <i class="fas fa-envelope" style="color:#6b7280; font-size:1.2rem;"></i>
+            <p style="font-size:0.8rem; color:#6b7280; margin-top:4px;">developer@noneapk.xyz</p>
+            <p style="font-size:0.65rem; color:#9ca3af;">Response within 24h</p>
+          </div>
+          <div style="background:#f9fafb; border-radius:12px; padding:14px; text-align:center;">
+            <i class="fas fa-comments" style="color:#6b7280; font-size:1.2rem;"></i>
+            <p style="font-size:0.8rem; color:#6b7280; margin-top:4px;">Community Forum</p>
+            <p style="font-size:0.65rem; color:#9ca3af;">20k+ developers</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <div>
+      <a href="privecy.html"><i class="fas fa-lock"></i> Privacy</a>
+      <a href="terms.html"><i class="fas fa-file-contract"></i> Terms</a>
+      <a href="dashboard.html"><i class="fas fa-chart-pie"></i> Dashboard</a>
+      <a href="404.html"><i class="fas fa-exclamation-triangle"></i> 404</a>
+    </div>
+    <div style="margin-top: 8px; opacity: 0.6; font-size: 0.7rem;">
+      NoneApk · Developer Portal 2026
+    </div>
+  </footer>
+
+  <script src="js/developer.js"></script>
+</body>
+</html>
