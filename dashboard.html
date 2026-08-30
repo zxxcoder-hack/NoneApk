@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+  <title>Dashboard · NoneApk</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="css/dashboard.css"/>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <div class="logo-area">
+        <div class="logo-loader">
+          <i class="fas fa-cube"></i>
+        </div>
+        <span class="brand">NoneApk</span>
+      </div>
+      
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+      
+      <div class="nav-links" id="navLinks">
+        <a href="index.html"><i class="fas fa-compass"></i> Discover</a>
+        <a href="upload.html"><i class="fas fa-cloud-upload-alt"></i> Upload</a>
+        <a href="login.html" class="btn-outline"><i class="fas fa-sign-out-alt"></i> Logout</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <!-- Dashboard Header -->
+    <div class="dashboard-header">
+      <div>
+        <h1>Dashboard</h1>
+        <p>Welcome back, <strong>John Doe</strong> · Developer</p>
+      </div>
+      <div class="header-actions">
+        <button class="btn-secondary" onclick="window.location.href='upload.html'">
+          <i class="fas fa-upload"></i> Upload
+        </button>
+        <button class="btn-primary" onclick="window.location.href='developer.html'">
+          <i class="fas fa-user-tie"></i> Portal
+        </button>
+      </div>
+    </div>
+
+    <!-- Stats Grid -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon blue"><i class="fas fa-download"></i></div>
+        <div class="stat-content">
+          <h3>12.8k</h3>
+          <p>Downloads</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon green"><i class="fas fa-cloud-upload-alt"></i></div>
+        <div class="stat-content">
+          <h3>7</h3>
+          <p>Apps</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon orange"><i class="fas fa-star"></i></div>
+        <div class="stat-content">
+          <h3>4.8</h3>
+          <p>Rating</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon purple"><i class="fas fa-users"></i></div>
+        <div class="stat-content">
+          <h3>342</h3>
+          <p>Users</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon red"><i class="fas fa-exclamation-circle"></i></div>
+        <div class="stat-content">
+          <h3>2</h3>
+          <p>Updates</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon teal"><i class="fas fa-clock"></i></div>
+        <div class="stat-content">
+          <h3>4</h3>
+          <p>Reviews</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="section-card">
+      <div class="section-card-header">
+        <h2><i class="fas fa-bolt"></i> Quick Actions</h2>
+      </div>
+      <div class="quick-actions">
+        <div class="quick-action" onclick="window.location.href='upload.html'">
+          <i class="fas fa-upload"></i>
+          <h4>Upload</h4>
+          <p>Publish APK</p>
+        </div>
+        <div class="quick-action" onclick="window.location.href='developer.html'">
+          <i class="fas fa-chart-line"></i>
+          <h4>Analytics</h4>
+          <p>Performance</p>
+        </div>
+        <div class="quick-action" onclick="alert('Monetization settings')">
+          <i class="fas fa-gem"></i>
+          <h4>Monetize</h4>
+          <p>Earn revenue</p>
+        </div>
+        <div class="quick-action" onclick="alert('Community settings')">
+          <i class="fas fa-comments"></i>
+          <h4>Community</h4>
+          <p>Engage users</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- My Apps -->
+    <div class="section-card">
+      <div class="section-card-header">
+        <h2><i class="fas fa-code"></i> My Apps</h2>
+        <a href="#">View all →</a>
+      </div>
+      <div class="app-list">
+        <div class="app-item" onclick="window.location.href='apk.html'">
+          <div class="app-item-icon"><i class="fas fa-gamepad"></i></div>
+          <div class="app-item-info">
+            <h4>Pixel Racer</h4>
+            <p>Nitro Games · v2.1.0</p>
+          </div>
+          <div class="app-item-stats">
+            <span><i class="fas fa-download"></i> 892</span>
+            <span class="status-badge published">Published</span>
+          </div>
+        </div>
+        <div class="app-item" onclick="window.location.href='apk.html'">
+          <div class="app-item-icon"><i class="fas fa-pen-fancy"></i></div>
+          <div class="app-item-info">
+            <h4>SketchFlow</h4>
+            <p>Artisan Labs · v1.4</p>
+          </div>
+          <div class="app-item-stats">
+            <span><i class="fas fa-download"></i> 302</span>
+            <span class="status-badge published">Published</span>
+          </div>
+        </div>
+        <div class="app-item" onclick="window.location.href='apk.html'">
+          <div class="app-item-icon"><i class="fas fa-music"></i></div>
+          <div class="app-item-info">
+            <h4>BeatForge</h4>
+            <p>SoundPulse · v3.0.2</p>
+          </div>
+          <div class="app-item-stats">
+            <span><i class="fas fa-download"></i> 90</span>
+            <span class="status-badge pending">Pending</span>
+          </div>
+        </div>
+        <div class="app-item" onclick="window.location.href='apk.html'">
+          <div class="app-item-icon"><i class="fas fa-camera"></i></div>
+          <div class="app-item-info">
+            <h4>LensPro</h4>
+            <p>Focal Labs · v5.1</p>
+          </div>
+          <div class="app-item-stats">
+            <span><i class="fas fa-download"></i> 1.2k</span>
+            <span class="status-badge draft">Draft</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Two column layout: Activity + Performance -->
+    <div class="two-col">
+      <div class="section-card">
+        <div class="section-card-header">
+          <h2><i class="fas fa-clock"></i> Activity</h2>
+          <a href="#">View all</a>
+        </div>
+        <div class="activity-list">
+          <div class="activity-item">
+            <div class="activity-icon"><i class="fas fa-download"></i></div>
+            <div class="activity-content">
+              <p><strong>Pixel Racer</strong> downloaded 47×</p>
+              <div class="time">2 hours ago</div>
+            </div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-icon"><i class="fas fa-star"></i></div>
+            <div class="activity-content">
+              <p><strong>SketchFlow</strong> got a 5-star review</p>
+              <div class="time">5 hours ago</div>
+            </div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-icon"><i class="fas fa-upload"></i></div>
+            <div class="activity-content">
+              <p>Uploaded <strong>BeatForge v3.0.2</strong></p>
+              <div class="time">1 day ago</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <div class="section-card-header">
+          <h2><i class="fas fa-chart-pie"></i> Performance</h2>
+          <a href="#">Details</a>
+        </div>
+        <div class="chart-placeholder">
+          <i class="fas fa-chart-bar"></i>
+          <p>Weekly downloads: <strong>1,247</strong></p>
+          <p style="font-size: 0.75rem; margin-top: 2px; color: #059669;">↑ 12.4% from last week</p>
+          <div class="mini-chart">
+            <div><span class="dot" style="background:#4f46e5;"></span> Mon</div>
+            <div><span class="dot" style="background:#059669;"></span> Wed</div>
+            <div><span class="dot" style="background:#d97706;"></span> Fri</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <div>
+      <a href="privecy.html"><i class="fas fa-lock"></i> Privacy</a>
+      <a href="terms.html"><i class="fas fa-file-contract"></i> Terms</a>
+      <a href="developer.html"><i class="fas fa-user-tie"></i> Developer</a>
+      <a href="404.html"><i class="fas fa-exclamation-triangle"></i> 404</a>
+    </div>
+    <div style="margin-top: 8px; opacity: 0.6; font-size: 0.7rem;">
+      NoneApk · 2026
+    </div>
+  </footer>
+
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
