@@ -1,0 +1,453 @@
+
+/* ----- global reset & base ----- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+}
+
+body {
+  background: #f0f2f5;
+  color: #1f2937;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 16px;
+  width: 100%;
+}
+
+/* ----- header / navigation (mobile-first) ----- */
+.navbar {
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 12px 0;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+
+.navbar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+
+.logo-loader {
+  width: 36px;
+  height: 36px;
+  background: #0a0a0a;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.logo-loader i {
+  color: white;
+  font-size: 18px;
+}
+
+.brand {
+  font-weight: 650;
+  font-size: 1.2rem;
+  letter-spacing: -0.5px;
+  background: linear-gradient(145deg, #111, #2b2b2b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  white-space: nowrap;
+}
+
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: #1f2937;
+  cursor: pointer;
+  padding: 4px 6px;
+  transition: 0.2s;
+  margin-left: auto;
+}
+
+.menu-toggle:active {
+  transform: scale(0.92);
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #374151;
+  transition: all 0.3s ease;
+}
+
+.nav-links a {
+  transition: color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-links a:hover {
+  color: #0a0a0a;
+}
+
+.btn-outline {
+  border: 1px solid #d1d5db;
+  padding: 8px 18px;
+  border-radius: 40px;
+  background: transparent;
+  transition: all 0.2s;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.btn-outline:hover {
+  background: #0a0a0a;
+  color: white;
+  border-color: #0a0a0a;
+}
+
+/* ----- Download Card ----- */
+.download-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  padding: 20px 0;
+}
+
+.download-card {
+  background: white;
+  border-radius: 24px;
+  padding: 32px 24px;
+  max-width: 480px;
+  width: 100%;
+  text-align: center;
+  border: 1px solid rgba(0,0,0,0.02);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+  position: relative;
+  overflow: hidden;
+}
+
+.download-card .icon-wrapper {
+  width: 80px;
+  height: 80px;
+  background: #f0f2f5;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  position: relative;
+}
+
+.download-card .icon-wrapper i {
+  font-size: 32px;
+  color: #0a0a0a;
+  z-index: 2;
+}
+
+/* Circular progress ring */
+.progress-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: conic-gradient(#0a0a0a 0%, #e5e7eb 0%);
+  transition: background 0.3s ease;
+  z-index: 1;
+}
+
+.progress-ring-inner {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  background: #f0f2f5;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.download-card h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.download-card .app-name-display {
+  color: #6b7280;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+
+.download-card .status-text {
+  font-size: 0.9rem;
+  color: #4b5563;
+  margin-bottom: 8px;
+}
+
+.download-card .countdown {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #0a0a0a;
+  margin: 4px 0 8px;
+}
+
+.download-card .countdown .unit {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #6b7280;
+}
+
+/* Progress bar */
+.progress-bar-track {
+  width: 100%;
+  height: 6px;
+  background: #e5e7eb;
+  border-radius: 40px;
+  margin: 16px 0 8px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: #0a0a0a;
+  border-radius: 40px;
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+.progress-percent {
+  font-size: 0.8rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.download-card .sub-text {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  margin-top: 12px;
+}
+
+/* State: preparing */
+.download-card.preparing .icon-wrapper i {
+  animation: pulseIcon 1.2s infinite;
+}
+
+@keyframes pulseIcon {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+/* State: ready */
+.download-card.ready .icon-wrapper i {
+  color: #059669;
+}
+
+.download-card.ready .progress-ring {
+  background: conic-gradient(#059669 100%, #e5e7eb 100%);
+}
+
+.btn-download-final {
+  background: #0a0a0a;
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 60px;
+  font-weight: 600;
+  font-size: 1rem;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: 0.2s;
+  cursor: pointer;
+  margin: 16px auto 0;
+  width: 100%;
+  max-width: 280px;
+}
+
+.btn-download-final:active {
+  transform: scale(0.96);
+}
+
+.btn-download-final:hover {
+  background: #2d2d2d;
+}
+
+.download-card.ready .btn-download-final {
+  display: inline-flex;
+}
+
+/* ----- Footer ----- */
+.page-footer {
+  border-top: 1px solid #e5e7eb;
+  padding: 20px 0 16px;
+  margin-top: 24px;
+  font-size: 0.8rem;
+  color: #6b7280;
+  text-align: center;
+  width: 100%;
+}
+
+.page-footer a {
+  margin: 0 8px;
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
+.page-footer a:active {
+  color: #0a0a0a;
+}
+
+/* ----- Mobile Responsive ----- */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    padding: 12px 0 8px;
+    gap: 6px;
+    background: #ffffff;
+    border-top: 1px solid #f3f4f6;
+    margin-top: 10px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    border-radius: 0 0 16px 16px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 12px 18px;
+    border-radius: 10px;
+    background: #f9fafb;
+    justify-content: center;
+  }
+
+  .btn-outline {
+    text-align: center;
+    border: none;
+    background: #0a0a0a;
+    color: white;
+    border-radius: 10px;
+    padding: 12px 18px;
+  }
+
+  .btn-outline:hover {
+    background: #2d2d2d;
+  }
+
+  .download-card {
+    padding: 24px 18px;
+    border-radius: 20px;
+    margin: 0 8px;
+  }
+
+  .download-card h2 {
+    font-size: 1.2rem;
+  }
+
+  .download-card .countdown {
+    font-size: 2rem;
+  }
+
+  .download-card .icon-wrapper {
+    width: 64px;
+    height: 64px;
+  }
+
+  .download-card .icon-wrapper i {
+    font-size: 26px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .menu-toggle {
+    display: none !important;
+  }
+
+  .nav-links {
+    display: flex !important;
+    flex-direction: row;
+    width: auto;
+    padding: 0;
+    gap: 24px;
+    background: transparent;
+    border-top: none;
+    margin-top: 0;
+    position: static;
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  .nav-links a {
+    padding: 6px 12px;
+    background: transparent;
+    border-radius: 0;
+  }
+
+  .nav-links a:hover {
+    background: transparent;
+    color: #0a0a0a;
+  }
+
+  .btn-outline {
+    padding: 8px 20px;
+    border-radius: 40px;
+    background: transparent;
+    color: #1f2937;
+    border: 1px solid #d1d5db;
+  }
+
+  .btn-outline:hover {
+    background: #0a0a0a;
+    color: white;
+    border-color: #0a0a0a;
+  }
+
+  .btn-download-final:hover {
+    transform: scale(1.02);
+  }
+
+  .btn-download-final:active {
+    transform: scale(0.96);
+  }
+}
