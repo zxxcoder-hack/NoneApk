@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign up · NoneApk</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="css/signup.css" />
+</head>
+<body>
+  <div class="signup-card">
+    <div class="logo-loader"><i class="fas fa-cube"></i></div>
+    <h1>Join NoneApk</h1>
+    <p class="sub">Create your account</p>
+    
+    <form id="signup-form">
+      <div class="input-group">
+        <label><i class="fas fa-user"></i> Full name</label>
+        <input type="text" id="signup-name" placeholder="John Doe" required />
+        <span class="field-error" id="name-error"></span>
+      </div>
+      
+      <div class="input-group">
+        <label><i class="fas fa-envelope"></i> Email</label>
+        <input type="email" id="signup-email" placeholder="you@example.com" required />
+        <span class="field-error" id="email-error"></span>
+      </div>
+      
+      <div class="input-group">
+        <label><i class="fas fa-lock"></i> Password</label>
+        <input type="password" id="signup-password" placeholder="••••••••" required />
+        <div class="password-strength">
+          <div class="strength-bar" id="strength-bar"></div>
+        </div>
+        <span class="field-error" id="password-error"></span>
+        <div class="password-hints" id="password-hints">
+          <small><i class="fas fa-circle"></i> At least 8 characters</small>
+          <small><i class="fas fa-circle"></i> Uppercase & lowercase</small>
+          <small><i class="fas fa-circle"></i> Number & special character</small>
+        </div>
+      </div>
+      
+      <div class="role-select">
+        <label class="role-option">
+          <input type="radio" name="role" value="user" checked />
+          <i class="fas fa-user"></i> User
+        </label>
+        <label class="role-option">
+          <input type="radio" name="role" value="developer" />
+          <i class="fas fa-code"></i> Developer
+        </label>
+      </div>
+
+      <!-- Terms & Conditions Checkbox -->
+      <div class="terms-checkbox">
+        <label class="checkbox-container">
+          <input type="checkbox" id="terms-agree" required />
+          <span class="checkmark"></span>
+          <span class="checkbox-text">
+            I agree to the 
+            <a href="terms.html" target="_blank" class="terms-link">Terms & Conditions</a>
+            and 
+            <a href="privacy.html" target="_blank" class="terms-link">Privacy Policy</a>
+          </span>
+        </label>
+        <span class="field-error" id="terms-error"></span>
+      </div>
+      
+      <button type="submit" class="btn-primary" id="signup-btn">
+        <i class="fas fa-user-plus"></i> Create account
+      </button>
+    </form>
+    
+    <div class="footer-links">
+      <a href="login.html"><i class="fas fa-sign-in-alt"></i> Already have an account?</a>
+      <a href="index.html"><i class="fas fa-arrow-left"></i> Back</a>
+    </div>
+  </div>
+
+  <script type="module">
+    import './js/config.js';
+    import './js/signup.js'
+  </script>
+</body>
+</html>
