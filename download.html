@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+  <title>Download · NoneApk</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="css/download.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <div class="logo-area">
+        <div class="logo-loader">
+          <i class="fas fa-cube"></i>
+        </div>
+        <span class="brand">NoneApk</span>
+      </div>
+      
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+      
+      <div class="nav-links" id="navLinks">
+        <a href="index.html"><i class="fas fa-compass"></i> Discover</a>
+        <a href="apk.html"><i class="fas fa-arrow-left"></i> Back to App</a>
+        <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <div class="download-wrapper">
+      <div class="download-card preparing" id="downloadCard">
+        <div class="icon-wrapper">
+          <div class="progress-ring" id="progressRing"></div>
+          <div class="progress-ring-inner"></div>
+          <i class="fas fa-download"></i>
+        </div>
+        
+        <h2 id="statusTitle">Preparing your download</h2>
+        <p class="app-name-display" id="appDisplay">Pixel Racer v2.1.0</p>
+        <p class="status-text" id="statusText">Please wait while we prepare your file...</p>
+        
+        <div class="countdown" id="countdownDisplay">
+          <span id="countdownNumber">5</span>
+          <span class="unit">s</span>
+        </div>
+        
+        <div class="progress-bar-track">
+          <div class="progress-bar-fill" id="progressFill"></div>
+        </div>
+        <div class="progress-percent" id="progressPercent">0%</div>
+        
+        <p class="sub-text">Do not close this window</p>
+        
+        <button class="btn-download-final" id="finalDownloadBtn" onclick="startFinalDownload()">
+          <i class="fas fa-download"></i> Download Now
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <div>
+      <a href="privecy.html"><i class="fas fa-lock"></i> Privacy</a>
+      <a href="terms.html"><i class="fas fa-file-contract"></i> Terms</a>
+      <a href="developer.html"><i class="fas fa-user-tie"></i> Developer</a>
+      <a href="dashboard.html"><i class="fas fa-chart-pie"></i> Dashboard</a>
+      <a href="404.html"><i class="fas fa-exclamation-triangle"></i> 404</a>
+    </div>
+    
+    <div style="margin-top: 8px; opacity: 0.6; font-size: 0.7rem;">
+      NoneApk · 2026
+    </div>
+  </footer>
+
+  <script src="js/download.js"></script>
+</body>
+</html>
