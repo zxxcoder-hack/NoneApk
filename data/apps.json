@@ -1,0 +1,51 @@
+{
+  "apps": {
+    "xyc-player": {
+      "id": "xyc-player",
+      "name": "XYC Player",
+      "version": "1.4.1",
+      "size": "10 MB",
+      "developer": "ZxxCoder",
+      "category": "Media",
+      "rating": 4.7,
+      "description": "A futuristic media player with neural audio enhancement, gesture controls, and a beautifully minimal interface.",
+      "icon": "/images/icon/xyc-player.png",
+      "apkUrl": "https://github.com/zxxcoder-hack/Video-Player-XYC/releases/download/1.4.0/app-release.apk",
+      "screenshots": [
+        "/images/screenshot/xyc-player-1.png",
+        "/images/screenshot/xyc-player-2.png",
+        "/images/screenshot/xyc-player-3.png",
+        "/images/screenshot/xyc-player-4.png",
+        "/images/screenshot/xyc-player-5.png",
+        "/images/screenshot/xyc-player-6.png",
+        "/images/screenshot/xyc-player-7.png"
+      ],
+      "products": [
+        {
+          "id": "pro",
+          "name": "Pro License",
+          "description": "Unlock all advanced features and neural audio processing.",
+          "price": 9.99,
+          "currency": "USD",
+          "walletType": "bkash_api"
+        },
+        {
+          "id": "premium",
+          "name": "Premium Bundle",
+          "description": "Pro features + exclusive themes + priority support.",
+          "price": 19.99,
+          "currency": "USD",
+          "walletType": "bkash_api"
+        },
+        {
+          "id": "lifetime",
+          "name": "Lifetime Access",
+          "description": "One-time payment. All future updates included.",
+          "price": 49.99,
+          "currency": "USD",
+          "walletType": "bkash_api"
+        }
+      ]
+    }
+  }
+}
