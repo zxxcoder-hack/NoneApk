@@ -1,0 +1,61 @@
+{
+  "anime": {
+    "master": "https://files.catbox.moe/6zelle.enc",
+    "1": {
+      "data": "https://files.catbox.moe/2ur6o3.enc",
+      "thumb": "https://files.catbox.moe/0nrgxk.dt"
+    },
+    "2": {
+      "data": "https://files.catbox.moe/yp5tb4.enc",
+      "thumb": "https://files.catbox.moe/iz2xr7.dt"
+    },
+    "3": {
+      "data": "https://files.catbox.moe/rhje9e.enc",
+      "thumb": "https://files.catbox.moe/33tngj.dt"
+    },
+    "4": {
+      "data": "https://files.catbox.moe/3kukrl.enc",
+      "thumb": "https://files.catbox.moe/j2objt.dt"
+    },
+    "5": {
+      "data": "https://files.catbox.moe/cuuz72.enc",
+      "thumb": "https://files.catbox.moe/vx9obb.dt"
+    },
+    "6": {
+      "data": "https://files.catbox.moe/2kmjig.enc",
+      "thumb": "https://files.catbox.moe/j4xswi.dt"
+    },
+    "7": {
+      "data": "https://files.catbox.moe/dcgotb.enc",
+      "thumb": "https://files.catbox.moe/dqkqtf.dt"
+    },
+    "8": {
+      "data": "https://files.catbox.moe/8azj46.enc",
+      "thumb": "https://files.catbox.moe/dhg9xj.dt"
+    },
+    "9": {
+      "data": "https://files.catbox.moe/wng5vb.enc",
+      "thumb": "https://files.catbox.moe/aushr2.dt"
+    },
+    "10": {
+      "data": "https://files.catbox.moe/c91ler.enc",
+      "thumb": "https://files.catbox.moe/s7p9lb.dt"
+    },
+    "11": {
+      "data": "https://files.catbox.moe/3epw4k.enc",
+      "thumb": "https://files.catbox.moe/ndm1rz.dt"
+    },
+    "12": {
+      "data": "https://files.catbox.moe/o1tw3s.enc",
+      "thumb": "https://files.catbox.moe/7aa8ju.dt"
+    }
+  },
+  "drama": {
+    "master": "https://files.catbox.moe/4b8df4.enc",
+    "1": {
+      "data": "https://files.catbox.moe/9n6hce.enc",
+      "thumb": "https://files.catbox.moe/hpgzju.dt"
+    }
+  },
+  "lastUpdated": "2026-11-22T07:51:55.064987+00:00"
+}
